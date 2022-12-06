@@ -4,6 +4,7 @@ import java.sql.Time;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
@@ -12,6 +13,7 @@ import jakarta.persistence.Table;
 public class Products {
     
     @Id
+    @GeneratedValue
     private Long id;
     
     @Column(name="admin_id")
@@ -42,10 +44,10 @@ public class Products {
     private Integer status;
 
     @Column(name = "created_at")
-    private Time createdAt;
+    private String createdAt;
 
     @Column(name="updated_at")
-    private Time updatedAt;
+    private String updatedAt;
 
     public Long getId() {
         return id;
@@ -127,19 +129,19 @@ public class Products {
         this.status = status;
     }
 
-    public Time getCreatedAt() {
+    public String getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(Time createdAt) {
+    public void setCreatedAt(String createdAt) {
         this.createdAt = createdAt;
     }
 
-    public Time getUpdatedAt() {
+    public String getUpdatedAt() {
         return updatedAt;
     }
 
-    public void setUpdatedAt(Time updatedAt) {
+    public void setUpdatedAt(String updatedAt) {
         this.updatedAt = updatedAt;
     }
 
