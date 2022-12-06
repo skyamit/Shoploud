@@ -6,34 +6,31 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.Shoploud.models.Admin;
+import com.example.Shoploud.models.Tadmin;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 
-import com.example.Shoploud.service.AdminServiceImpl;
+import com.example.Shoploud.service.TadminServiceImpl;
 
 @RestController
 public class AdminController {
     
     @Autowired
-    AdminServiceImpl adminServiceImpl;
+    TadminServiceImpl adminServiceImpl;
 
 // create admin
     @PostMapping("/createAdmin")
-    public ResponseEntity<?> createAdmin(@RequestBody Admin admin) {
-        return adminServiceImpl.createAdmin(admin);
+    public ResponseEntity<?> createAdmin(@RequestBody Tadmin tadmin) {
+        System.out.println(tadmin);
+        return adminServiceImpl.createAdmin(tadmin);
     }
 
 // login admin
-    @GetMapping("/loginAdmin/{email}")
-    public ResponseEntity<?> loginAdmin(@PathVariable String email, @RequestBody String password) {
-        return adminServiceImpl.loginAdmin(email,password);
+    @GetMapping("/loginAdmin/{femail}/{fpassword}")
+    public ResponseEntity<?> loginAdmin(@PathVariable String femail, @PathVariable String fpassword) {
+        System.out.println(femail+" "+fpassword);
+        return adminServiceImpl.loginAdmin(femail,fpassword);
     }
-
-// update admin
-
-// verify admin
-
 
 }

@@ -5,33 +5,33 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import com.example.Shoploud.models.Admin;
-import com.example.Shoploud.dao.AdminDao;
+import com.example.Shoploud.models.Tadmin;
+import com.example.Shoploud.dao.TadminDao;
 
 @Service
-public class AdminServiceImpl implements AdminService{
+public class TadminServiceImpl implements TadminService{
 
     @Autowired
-    private AdminDao adminDao;
+    private TadminDao adminDao;
 
     @Override
-    public ResponseEntity<?> createAdmin(Admin admin) {
+    public ResponseEntity<?> createAdmin(Tadmin tadmin) {
         // check if account exisits or not
-        String email = admin.getEmail();
-        String password = admin.getPassword();
+        String email = tadmin.getFemail();
+        String password = tadmin.getFpassword();
 
-        Admin tempAdmin = adminDao.getAdmin(email, password);
+        Tadmin tempAdmin = adminDao.getAdmin(email, password);
         if(tempAdmin != null){
             return new ResponseEntity<>("Account already exists", HttpStatus.CONFLICT);
         }
         
-        adminDao.save(admin);
+        adminDao.save(tadmin);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
     @Override
-    public ResponseEntity<?> loginAdmin(String email, String password) {
-        Admin tempAdmin = adminDao.getAdmin(email, password);
+    public ResponseEntity<?> loginAdmin(String temail, String tpassword) {
+        Tadmin tempAdmin = adminDao.getAdmin(temail, tpassword);
         if(tempAdmin == null){
             return new ResponseEntity<>("Account doesn't exists", HttpStatus.NOT_FOUND);
         }
