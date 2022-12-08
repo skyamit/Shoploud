@@ -18,9 +18,8 @@ public class TadminServiceImpl implements TadminService{
     public ResponseEntity<?> createAdmin(Tadmin tadmin) {
         // check if account exisits or not
         String email = tadmin.getFemail();
-        String password = tadmin.getFpassword();
 
-        Tadmin tempAdmin = adminDao.getAdmin(email, password);
+        Tadmin tempAdmin = adminDao.getAdminByEmail(email);
         if(tempAdmin != null){
             return new ResponseEntity<>("Account already exists", HttpStatus.CONFLICT);
         }

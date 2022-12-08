@@ -10,4 +10,7 @@ public interface TadminDao extends JpaRepository<Tadmin, Long> {
     @Query(value="Select * from tadmin where femail=:femail and fpassword=:fpassword limit 1",nativeQuery=true)
     public Tadmin getAdmin(String femail, String fpassword);
 
+    @Query(value="Select * from tadmin where femail=:femail limit 1",nativeQuery=true)
+    public Tadmin getAdminByEmail(String femail);
+
 }
