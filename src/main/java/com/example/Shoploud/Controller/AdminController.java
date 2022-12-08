@@ -1,6 +1,5 @@
-package com.example.Shoploud.controller;
+package com.example.Shoploud.Controller;
 
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -21,15 +20,13 @@ public class AdminController {
     TadminServiceImpl adminServiceImpl;
 
 // create admin
-    @CrossOrigin
-    @PostMapping("/createAdmin")
+    @PostMapping(path="/createAdmin", consumes = {"application/json"})
     public ResponseEntity<?> createAdmin(@RequestBody Tadmin tadmin) {
         System.out.println(tadmin);
         return adminServiceImpl.createAdmin(tadmin);
     }
 
 // login admin
-    @CrossOrigin
     @GetMapping("/loginAdmin/{femail}/{fpassword}")
     public ResponseEntity<?> loginAdmin(@PathVariable String femail, @PathVariable String fpassword) {
         System.out.println(femail+" "+fpassword);
