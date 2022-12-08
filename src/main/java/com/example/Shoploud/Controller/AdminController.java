@@ -27,7 +27,7 @@ public class AdminController {
     }
 
 // login admin
-    @GetMapping("/loginAdmin/{femail}/{fpassword}")
+    @PostMapping(path="/loginAdmin/{femail}/{fpassword}", produces = {"application/json"})
     public ResponseEntity<?> loginAdmin(@PathVariable String femail, @PathVariable String fpassword) {
         System.out.println(femail+" "+fpassword);
         return adminServiceImpl.loginAdmin(femail,fpassword);

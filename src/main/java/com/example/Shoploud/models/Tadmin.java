@@ -116,9 +116,9 @@ public class Tadmin {
 
     @Override
     public String toString() {
-        return "Tadmin [fid=" + fid + ", fname=" + fname + ", femail=" + femail + ", fpassword=" + fpassword
+        return "{fid=" + fid + ", fname=" + fname + ", femail=" + femail + ", fpassword=" + fpassword
                 + ", frole=" + frole + ", fstatus=" + fstatus + ", fcreatedAt=" + fcreatedAt + ", fupdatedAt="
-                + fupdatedAt + "]";
+                + fupdatedAt + "}";
     }
 
     @Override
