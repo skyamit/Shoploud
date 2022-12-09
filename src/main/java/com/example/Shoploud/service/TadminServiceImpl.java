@@ -38,5 +38,5 @@ public class TadminServiceImpl implements TadminService{
         return new ResponseEntity<>(tempAdmin,HttpStatus.OK);
     }
 
-    
+        
 }
