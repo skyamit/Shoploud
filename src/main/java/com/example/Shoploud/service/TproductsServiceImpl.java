@@ -5,10 +5,12 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
 
 import com.example.Shoploud.dao.TproductsDao;
 import com.example.Shoploud.models.Tproducts;
 
+@Service
 public class TproductsServiceImpl implements TproductsService{
 
     @Autowired
@@ -16,12 +18,12 @@ public class TproductsServiceImpl implements TproductsService{
 
     @Override
     public ResponseEntity<List<String>> getCategory() {
-        return new ResponseEntity<>(tproductsDao.getFcategory(),HttpStatus.ACCEPTED);
+        return new ResponseEntity<>(tproductsDao.getCategory(),HttpStatus.ACCEPTED);
     }
 
     @Override
     public ResponseEntity<List<Tproducts>> getAdminProducts(Long fadminId) {
-        return new ResponseEntity<>(tproductsDao.getAdminProducts(fadminId),HttpStatus.ACCEPTED);
+        return new ResponseEntity<>(tproductsDao.getProducts(fadminId),HttpStatus.ACCEPTED);
     }
 
     @Override

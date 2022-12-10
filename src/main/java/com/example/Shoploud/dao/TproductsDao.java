@@ -12,10 +12,10 @@ public interface TproductsDao extends JpaRepository<Tproducts,Long>{
     
     // get Categories 
     @Query(name = "select distinct fcategory from tproducts ",nativeQuery = true)
-    public List<String> getFcategory();
+    public List<String> getCategory();
 
     @Query(name="select * from tproducts where fadmin_id = :fadminId", nativeQuery = true)
-    public List<Tproducts> getAdminProducts(Long fadminId);
+    public List<Tproducts> getProducts(Long fadminId);
 
     @Modifying
     @Query(name="update products set fname = :fname, fdescription = :fdescription, fcategory = :fcategory, favailableCount = :favailableCount, fselling_price :fsellingPrice, foriginal_price = :foriginalPrice, fupdated_at = :fupdatedAt, fpercentage_off := fpercentageOff where fid = :fid", nativeQuery = true)
