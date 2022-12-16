@@ -43,7 +43,7 @@ public class AdminController {
         return tproductsServiceImpl.getCategory();
     }
 
-    @GetMapping("/products/{adminId}")
+    @GetMapping("/products/{fadminId}")
     public ResponseEntity<?> getAdminProduct(@PathVariable Long fadminId){
         return tproductsServiceImpl.getAdminProducts(fadminId);
     }
@@ -58,7 +58,7 @@ public class AdminController {
         return tproductsServiceImpl.updateProduct(products);
     }
 
-    @GetMapping("/products/{fid}")
+    @GetMapping("/product/{fid}")
     public ResponseEntity<?> getSingleProduct(@PathVariable Long fid){
         return tproductsServiceImpl.getSingleProduct(fid);
     }
